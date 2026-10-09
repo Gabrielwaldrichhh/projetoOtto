@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controle de Portaria</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== LOGIN ===================== -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1>Controle de Portaria</h1>
+      <p class="subtitle">Saida, retorno e quilometragem de veiculos</p>
+
+      <div id="login-error" class="form-error" hidden></div>
+
+      <form id="login-form">
+        <div class="field">
+          <label for="login-user">Usuario</label>
+          <input id="login-user" name="username" autocomplete="username" required autofocus>
+        </div>
+        <div class="field">
+          <label for="login-pass">Senha</label>
+          <input id="login-pass" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn block" type="submit">ENTRAR</button>
+      </form>
+
+      <div class="login-hint">
+        Acessos de teste:<br>
+        <code>admin</code> / <code>admin123</code> &mdash; administrador<br>
+        <code>joao</code> / <code>123456</code> &mdash; vigilante<br>
+        <code>pedro</code> / <code>123456</code> &mdash; vigilante
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== APP ===================== -->
+  <div id="app" hidden>
+    <div class="topbar">
+      <span class="brand">Controle de Portaria</span>
+      <span class="user-chip" id="user-chip"></span>
+      <button class="btn ghost sm" id="btn-logout">Sair</button>
+    </div>
+
+    <nav class="tabs" id="tabs">
+      <button data-view="dashboard" class="active">Inicio</button>
+      <button data-view="movements">Movimentacoes</button>
+      <button data-view="vehicles">Veiculos</button>
+      <button data-view="drivers">Condutores</button>
+      <button data-view="guards" data-admin>Vigilantes</button>
+      <button data-view="reports">Relatorios</button>
+      <button data-view="audit" data-admin>Auditoria</button>
+    </nav>
+
+    <main id="view"></main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toasts"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
